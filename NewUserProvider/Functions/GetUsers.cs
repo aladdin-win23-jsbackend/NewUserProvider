@@ -17,5 +17,8 @@ public class GetUsers(ILogger<GetUsers> logger, DataContext context)
     {
         var users = await _context.Users.ToListAsync();
         return new OkObjectResult(users);
+
+
+
     }
 }
