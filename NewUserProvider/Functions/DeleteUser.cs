@@ -7,16 +7,10 @@ using Microsoft.Extensions.Logging;
 
 namespace NewUserProvider.Functions;
 
-public class DeleteUser
+public class DeleteUser(ILogger<DeleteUser> logger, DataContext context)
 {
-    private readonly ILogger<DeleteUser> _logger;
-    private readonly DataContext _context;
-
-    public DeleteUser(ILogger<DeleteUser> logger, DataContext context)
-    {
-        _logger = logger;
-        _context = context;
-    }
+    private readonly ILogger<DeleteUser> _logger = logger;
+    private readonly DataContext _context = context;
 
     [Function("DeleteUser")]
     public async Task<IActionResult> Run(
